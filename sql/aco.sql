@@ -3,10 +3,11 @@
 -- Table `acobd`.`administrador`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `acobd`.`administrador` (
-  `loginADM` INT NOT NULL AUTO_INCREMENT,
+  `idADM` INT NOT NULL AUTO_INCREMENT,
+  `loginADM` INT NOT NULL,
   `nomeADM` VARCHAR(45) NOT NULL,
   `senhaADM` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`loginADM`),
+  PRIMARY KEY (`idADM`),
   UNIQUE INDEX `senhaADM_UNIQUE` (`senhaADM` ASC),
   UNIQUE INDEX `idLOGIN_UNIQUE` (`loginADM` ASC)
   )ENGINE = InnoDB;
