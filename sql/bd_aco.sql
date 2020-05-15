@@ -104,14 +104,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `bd_aco`.`categoria_obra`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `bd_aco`.`categoria_obra` ;
-
 CREATE TABLE IF NOT EXISTS `bd_aco`.`categoria_obra` (
   `idCAT` INT NOT NULL AUTO_INCREMENT,
   `nomeCAT` VARCHAR(45) NOT NULL,
-  `administrador_idADM` INT NULL,
+  `administrador_idADM` INT NULL DEFAULT NULL,
   PRIMARY KEY (`idCAT`),
   INDEX `fk_categoria_obra_administrador1_idx` (`administrador_idADM` ASC),
+  UNIQUE INDEX `nomeCAT_UNIQUE` (`nomeCAT` ASC),
   CONSTRAINT `fk_categoria_obra_administrador1`
     FOREIGN KEY (`administrador_idADM`)
     REFERENCES `bd_aco`.`administrador` (`idADM`)
