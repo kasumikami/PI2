@@ -6,7 +6,6 @@
         <div class='col-md-2 col-md-offset-5'>
             <br><h1 class="title">Login</h1>
 			<form action="bib-verif.php" method="POST">
-				<input type="hidden" name="acao" value="logar">
 				<div class="form-group">
                 <label>ID:</label>
 				<input type="text" name="loginBIB" id="loginBIB" class="form-control" style="width: 200px">

@@ -1,13 +1,14 @@
 <?php 
 SESSION_START();
-if (!isset($_SESSION['loginBIB']) and !isset($_SESSION['nivel']) && ($_SESSION['nivel'] !=2 )){
-  header("Location:bib-login.php?erro=Usuário não logado no sistema");
+if (!isset($_SESSION['loginADM']) and !isset($_SESSION['tipo_usuario_idUSUARIO']) && ($_SESSION['tipo_usuario_idUSUARIO'] != 1 )){
+  header("Location:adm-login.php?erro=Usuário não logado no sistema");
 }  
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+
     <meta charset="UTF-8">
     <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
@@ -18,6 +19,7 @@ if (!isset($_SESSION['loginBIB']) and !isset($_SESSION['nivel']) && ($_SESSION['
     <link href='css/font-awesome.min.css' media='all' rel='stylesheet' type='text/css'/>
     <link href='css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
     <script src="https://kit.fontawesome.com/bf4d0ad315.js" crossorigin="anonymous"></script>
+    <title>Cadastrar Categoria</title>
   </head>
   <body>
     <div class='wrapper'>
@@ -34,15 +36,39 @@ if (!isset($_SESSION['loginBIB']) and !isset($_SESSION['nivel']) && ($_SESSION['
         <nav class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="sidebar-menu">
             <li class="header">MENU</li>
-            <li><a href="bib-dashboard.php"><i class="fas fa-user"></i> <span>PERFIL</span></a></li>
-            <li><a href="#"><i class="fa fa-edit"></i> <span>Cadastrar Obra</span></a></li>
-            <li><a href="#"><i class="fas fa-book"></i> <span>Meu Acervo</span></a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i> <span>Sair</span></a></li>
+            <li><a href="adm-dashboard.php"><i class="fas fa-user"></i> <span>PERFIL</span></a></li>
+            <li class="treeview">
+              <a href="#">
+              <i class="fa fa-edit"></i> <span>Categorias</span>
+              <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="cad-categoria.php"><i class="fa fa-circle-o"></i> Cadastrar</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Listar</a></li>
+              </ul>
+            </li>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> <span>Sair</span></a></li>
             
           </ul>
         </nav>
       </aside>
     </div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-lg-12'>
+                <form action="salvar-categoria.php" method="POST" data-toggle="validator">
+                <br><h1>Cadastrar Categoria</h1><br>
+                <div class="form-group">
+                    <label>Nome da categoria:</label>
+                    <input type="text" name="nomeCAT" class="form-control" style="width: 325px" required autofocus>
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg" value="cad-categoria" >Cadastrar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
     
     <script src='js/jquery.min.js' type='text/javascript'></script>
     <script src='js/bootstrap.min.js' type='text/javascript'></script>

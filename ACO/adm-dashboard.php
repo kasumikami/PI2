@@ -1,6 +1,14 @@
+<?php 
+SESSION_START();
+if (!isset($_SESSION['loginADM']) and !isset($_SESSION['tipo_usuario_idUSUARIO']) && ($_SESSION['tipo_usuario_idUSUARIO'] != 1 )){
+  header("Location:adm-login.php?erro=Usuário não logado no sistema");
+}  
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+
     <meta charset="UTF-8">
     <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
@@ -29,8 +37,17 @@
           <ul class="sidebar-menu">
             <li class="header">MENU</li>
             <li><a href="adm-dashboard.php"><i class="fas fa-user"></i> <span>PERFIL</span></a></li>
-            <li><a href="#"><i class="fa fa-edit"></i> <span>Cadastrar Categoria</span></a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i> <span>Sair</span></a></li>
+            <li class="treeview">
+              <a href="#">
+              <i class="fa fa-edit"></i> <span>Categorias</span>
+              <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="cad-categoria.php"><i class="fa fa-circle-o"></i> Cadastrar</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Listar</a></li>
+              </ul>
+            </li>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> <span>Sair</span></a></li>
             
           </ul>
         </nav>

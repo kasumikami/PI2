@@ -1,12 +1,12 @@
 <?php 
  
 $login = $_POST['loginBIB'];
-$senha = MD5($_POST['senhaBIBLIOTECA']);
+$senha = $_POST['senhaBIB'];
 
 define('HOST','localhost');
 define('USER','root');
 define('PASS','');
-define('BASE','acobd');
+define('BASE','bd_aco');
 $conn = new mysqli(HOST,USER,PASS,BASE);
 
 $select = "SELECT * FROM biblioteca WHERE loginBIB = '$login'";
@@ -29,18 +29,18 @@ $logarray = $array['login'];
  
       }else{
       
-        $insert = mysqli_query($conn, "INSERT INTO biblioteca (loginBIB, nomeBIB, emailBIB, telefoneBIB, enderecoBIB, horarioFuncionamento, senhaBIBLIOTECA) 
-        VALUES ('$login', '".$_REQUEST["nomeBIB"]."', '".$_REQUEST["emailBIB"]."','".$_REQUEST["telefoneBIB"]."', '".$_REQUEST["enderecoBIB"]."', '".$_REQUEST["horarioFuncionamento"]."', '$senha')");
+        $insert = mysqli_query($conn, "INSERT INTO biblioteca (nomeBIB, emailBIB, telefone, endereco, horarioFuncionamento, loginBIB, senhaBIB) 
+        VALUES ('".$_REQUEST["nomeBIB"]."', '".$_REQUEST["emailBIB"]."','".$_REQUEST["telefone"]."', '".$_REQUEST["endereco"]."', '".$_REQUEST["horarioFuncionamento"]."', '$login', '$senha')");
       
          
         if($insert){
           echo"<script language='javascript' type='text/javascript'>
           alert('Usuário cadastrado com sucesso!');window.location.
-          href='bib-login.php'</script>";
+          href='#'</script>";
         }else{
           echo"<script language='javascript' type='text/javascript'>
           alert('Não foi possível cadastrar esse usuário.');window.location
-          .href='bib-cad.php'</script>";
+          .href='#'</script>";
         }
       }
     }

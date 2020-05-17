@@ -5,18 +5,18 @@
     <div class='row'>
         <div class='col-lg-12'>
         <form action="bib-salvar.php" method="POST" data-toggle="validator">
-        <input type="hidden" name="acao" value="cadastro-bib">
+        <input type="hidden" name="tipo_usuario_idUSUARIO" value="2">
             <br><h1>Cadastro de Biblioteca</h1>
             <span class="help-block">Cadastre seu login.</span>
 				
             <div class="form-group">
                 <label>ID:</label>
-                <input type="text" name="loginBIB" class="form-control" style="width: 190px" required autofocus>
+                <input type="text" name="loginBIB" class="form-control" style="width: 190px" data-minlength="6" data-maxlength="6" required autofocus>
                 <span class="help-block">Seu ID deve ter seis (6) dígitos</span>
             </div>
             <div class="form-group">
                <label>Senha:</label>
-                <input type="password" name="senhaBIBLIOTECA" class="form-control" style="width: 190px" data-minlength="6" data-maxlength="6" required>
+                <input type="password" name="senhaBIB" class="form-control" style="width: 190px" data-minlength="6" data-maxlength="6" required>
                 <span class="help-block">Sua senha deve ter seis (6) dígitos</span><br><br>
             </div>
             
@@ -27,9 +27,9 @@
                 <label>E-mail:</label>
 				<input type="email" name="emailBIB" class="form-control">
                 <label>Telefone:</label>
-				<input type="number" name="telefoneBIB" class="form-control">
+				<input type="number" name="telefone" class="form-control">
                 <label>Endereço:</label>
-				<input type="text" name="enderecoBIB" class="form-control">
+				<input type="text" name="endereco" class="form-control">
                 <label>Horário de funcionamento:</label>
                 <input type="text" name="horarioFuncionamento" class="form-control">
             </div>

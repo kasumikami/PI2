@@ -6,7 +6,7 @@
         <div class='col-md-2 col-md-offset-5'>
             <br><h1 class="title">Login</h1>
 			<form action="adm-verif.php" method="POST">
-				<input type="hidden" name="acao" value="logar">
+				<input type="hidden" name="tipo_usuario_idUSUARIO" value="1">
 				<div class="form-group">
                 <label class="1">ID:</label>
 				<input type="number" name="loginADM" id="loginADM" class="form-control" style="width: 200px">
