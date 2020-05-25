@@ -1,3 +1,11 @@
+<?php 
+SESSION_START();
+if (!isset($_SESSION['loginBIB']) and !isset($_SESSION['nivelBIB']) && ($_SESSION['nivelBIB'] !=2 )){
+  header("Location:bib-login.php?erro=Usuário não logado no sistema");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -22,67 +30,21 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">ACO</a>
+          <a class="navbar-brand" href="#">ACO</a>
         </div>
         <nav class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="sidebar-menu">
             <li class="header">MENU</li>
-            <li><a href="#"><i class="fas fa-home"></i> <span>INICIO</span></a></li>
-            <li class="treeview">
-              <a href="#">
-              <i class="fa fa-edit"></i> <span>Cadastre-se</span>
-              <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="bib-cadastrar.php"><i class="fa fa-circle-o"></i> Biblioteca</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Leitor</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fas fa-sign-in-alt"></i> <span>Login</span>
-              <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="adm-login.php"><i class="fa fa-circle-o"></i> Administrador</a></li>
-                <li><a href="bib-login.php"><i class="fa fa-circle-o"></i> Biblioteca</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Leitor</a></li>
-              </ul>
-            </li>
-            <li>
-                <form class="form-control-sm" method="GET" action="#">
-                    <input class="form-control" type="text" name="pesquisar" placeholder="Pesquisar" aria-label="Search" style="width: 175px; margin-left: 1em; margin-top: 1em">
-                </form>
-            </li>
+            <li><a href="bib-perfil.php"><i class="fas fa-user"></i> <span>PERFIL</span></a></li>
+            <li><a href="bib-cad-obra.php"><i class="fa fa-edit"></i> <span>Cadastrar Obra</span></a></li>
+            <li><a href="#"><i class="fas fa-book"></i> <span>Meu Acervo</span></a></li>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> <span>Sair</span></a></li>
+            
           </ul>
         </nav>
       </aside>
     </div>
-    <!--------------------------conteudo------------------------------------------->
-    <?php 
-
-      
-    ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!----------------------------------------------------------------------------->
+    
     <script src='js/jquery.min.js' type='text/javascript'></script>
     <script src='js/bootstrap.min.js' type='text/javascript'></script>
     <script src='js/SidebarNav.min.js' type='text/javascript'></script>

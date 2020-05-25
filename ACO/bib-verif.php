@@ -1,47 +1,36 @@
+
 <?php
+     session_start();
+     
      $login = $_POST['loginBIB'];
-     $senha = $_POST['senhaBIB'];
+     $senha = SHA1($_POST['senhaBIB']);
+     $nivel = $_POST['nivelBIB'];
    
      define('HOST','localhost');
      define('USER','root');
      define('PASS','');
-     define('BASE','bd_aco');
+     define('BASE','aco');
      $connect = new mysqli (HOST, USER, PASS, BASE);
-    
+     $res = mysqli_query($connect, "SELECT * FROM biblioteca WHERE loginBIB = '$login' AND senhaBIB = '$senha'");
+
      
-     $res = mysqli_query($connect, "SELECT * FROM biblioteca WHERE nivel AND loginBIB = 
-     '$login' AND senhaBIB = '$senha'");
 
-     if(mysqli_num_rows ($res) > 0){
-          session_start();
-
+     if(mysqli_num_rows ($res) == 1){
           $_SESSION['loginBIB'] = $login;
           $_SESSION['senhaBIB'] = $senha;
-          //$_SESSION['nivel'] = ;
+          $_SESSION['nivelBIB'] = $nivel;
+
+          $get_id = mysqli_query($connect, "SELECT idBIB FROM biblioteca WHERE loginBIB = '$login'");
+          $row = mysqli_fetch_assoc($get_id);
+          $id = $row['idBIB'];
+          $_SESSION['usuario'] = $id;
      
-          if ($_SESSION['nivel'] == 2){
-          header("Location:bib-dashboard.php");
+          if ($_SESSION['nivelBIB'] == 2){
+          header("Location:bib-dash.php");
           }
      }else{
           unset ($_SESSION['loginBIB']);
           unset ($_SESSION['senhaBIB']);
           header('location:bib-login.php');
      }
-
-   
-   
-   
-   /*if (isset($entrar)) {  
-       $verifica = mysqli_query($connect, "SELECT * FROM biblioteca WHERE loginBIB = 
-       '$login' AND senhaBIBLIOTECA = '$senha'") or die("Erro ao selecionar.");
-      if (mysqli_num_rows($verifica)<=0){
-           echo"<script language='javascript' type='text/javascript'>
-           alert('Login e/ou senha incorretos.');window.location
-           .href='bib-login.php';</script>";
-           die();
-      }else{
-           setcookie("login",$login);
-           header("Location:bib-dashboard.php");
-      }
-   } */
 ?>

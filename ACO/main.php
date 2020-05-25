@@ -34,7 +34,7 @@
               <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="bib-cadastrar.php"><i class="fa fa-circle-o"></i> Biblioteca</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Biblioteca</a></li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Leitor</a></li>
               </ul>
             </li>
@@ -44,8 +44,8 @@
               <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="adm-login.php"><i class="fa fa-circle-o"></i> Administrador</a></li>
-                <li><a href="bib-login.php"><i class="fa fa-circle-o"></i> Biblioteca</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Administrador</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Biblioteca</a></li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Leitor</a></li>
               </ul>
             </li>
@@ -58,11 +58,9 @@
         </nav>
       </aside>
     </div>
-    <!--------------------------conteudo------------------------------------------->
-    <?php 
 
-      
-    ?>
+    <!--------------------------conteudo------------------------------------------->
+    
 
 
 
